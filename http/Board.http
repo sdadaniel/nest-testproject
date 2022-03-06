@@ -1,0 +1,29 @@
+POST http://localhost:3000/boards HTTP/1.1
+content-type: application/json
+
+{
+    "title": "testTitle",
+    "description": "second book",
+    "writer":"ssk"
+}
+###
+PATCH  http://localhost:3000/boards/1/status HTTP/1.1
+content-type: application/json
+
+{
+    "status": "PUBLIC"
+}
+###
+GET  http://localhost:3000/boards/10
+content-type: application/json
+###
+GET  http://localhost:3000/boards/10
+content-type: application/json
+
+###
+GET  http://localhost:3000/boards
+content-type: application/json
+
+###
+DELETE  http://localhost:3000/boards/1
+content-type: application/json
