@@ -1,16 +1,10 @@
 
 
-POST http://localhost:3000/boards HTTP/1.1
+POST http://localhost:3000/author HTTP/1.1
 content-type: application/json
 
-
-{
-    "title": "testTitle",
-    "description": "second book",
-    "writer":"ssk"
-}
 ###
-PATCH  http://localhost:3000/boards/2/status HTTP/1.1
+PATCH  http://localhost:3000/author/2/status HTTP/1.1
 content-type: application/json
 
 {
@@ -18,7 +12,7 @@ content-type: application/json
 }
 
 ###
-GET  http://localhost:3000/boards/2
+GET  http://localhost:3000/author
 content-type: application/json
 
 ###
