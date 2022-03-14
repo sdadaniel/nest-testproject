@@ -1,7 +1,15 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { BoardStatus } from '../board.model';
 
-@Entity()
+@Entity('board-test')
 export class Board extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -14,4 +22,19 @@ export class Board extends BaseEntity {
 
   @Column()
   status: BoardStatus;
+
+  @CreateDateColumn({
+    nullable: false,
+  })
+  created_at: Date;
+
+  @UpdateDateColumn({
+    nullable: false,
+  })
+  updated_at: Date;
+
+  @DeleteDateColumn({
+    nullable: false,
+  })
+  deleted_at: Date;
 }
