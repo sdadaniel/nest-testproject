@@ -4,19 +4,16 @@ import { CreateBoardDto } from './dto/create-board.dto';
 import { Board } from './entity/board.entity';
 import { BoardRepository } from './repository/board.repository';
 import { BoardStatus } from './board.model';
-import { UserRepository } from './repository/user.repository';
 
 @Injectable()
 export class BoardsService {
   constructor(
     @InjectRepository(BoardRepository)
     private boardRepository: BoardRepository,
-    @InjectRepository(UserRepository)
-    private userRepository: UserRepository,
   ) {}
 
   async getAllBoards() {
-    return this.userRepository.find();
+    return this.boardRepository.find();
   }
   async createBoard(createBoardDto: CreateBoardDto): Promise<Board> {
     return this.boardRepository.createBoard(createBoardDto);

@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { ConnectionOptions } from 'typeorm';
 
 // export const typeORMConfig: TypeOrmModuleOptions = {
 //   type: 'postgres',
@@ -20,3 +21,17 @@ export const typeORMConfig: TypeOrmModuleOptions = {
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
 };
+
+const connectionOptions: ConnectionOptions = {
+  type: 'postgres',
+  database: 'board',
+  synchronize: true,
+  logging: true,
+  entities: ['entities/*.*'],
+  host: process.env.DB_ENDPOINT || 'localhost',
+  port: 5432,
+  username: process.env.DB_USERNAME || '',
+  password: process.env.DB_PASSWORD || '',
+};
+
+export default connectionOptions;
